@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Daddy</title>
+<style>
+
+    .balloon {
+        position: absolute;
+        bottom: -150px;
+        width: 60px;
+        height: 80px;
+        background: red;
+        border-radius: 50%;
+        animation: float 6s infinite ease-in;
+    }
+
+    .balloon::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 60px;
+        background: #555;
+        left: 50%;
+        top: 80px;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: yellow;
+        animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-10vh) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<centre><h1>🎉 Happy Birthday Daddy 🎂 <br>
+<br>
+Love From Hugh, Darcey and Mummy.</h1></centre>
+
+<script>
+    // Create balloons
+    const colors = ["#ff4d4d", "#4da6ff", "#4dff88", "#ffd24d", "#ff66cc"];
+    for (let i = 0; i < 10; i++) {
+        let balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.animationDuration = (4 + Math.random() * 3) + "s";
+        document.body.appendChild(balloon);
+    }
+
+    // Create confetti
+    for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(confetti);
+    }
+</script>
+
+</body>
+</html>
